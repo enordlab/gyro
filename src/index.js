@@ -1,30 +1,6 @@
-import React, { useRef } from "react";
-import { render } from "react-dom";
-import { Canvas, useFrame } from "@react-three/fiber";
-import "./styles.css";
+import ReactDOM from "react-dom";
 
-const Box = () => {
-  const boxRef = useRef();
+import App from "./App";
 
-  useFrame(() => {
-    boxRef.current.rotation.z += 0.01;
-  });
-
-  return (
-    <mesh ref={boxRef} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25}>
-      <boxBufferGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color={"red"} />
-    </mesh>
-  );
-};
-
-const App = () => {
-  return (
-    <Canvas style={{ height: 400, width: 400 }}>
-      <pointLight position={[5, 5, 5]} />
-      <Box />
-    </Canvas>
-  );
-};
-
-render(<App />, document.getElementById("root"));
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
