@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { render } from "react-dom";
-import { Canvas, useFrame } from "react-three-fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import "./styles.css";
 
 const Box = () => {
