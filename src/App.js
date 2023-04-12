@@ -45,18 +45,20 @@ class App extends React.Component {
   }
 
   update = (str) => {
-    console.log("update", str.length, str)
-    var lines = str.split("\r\n")
-    // console.log("update", lines.length, lines)
-    for ( var i = 0; i < lines.length; i++) {
-      var line = lines[i];
-      console.log("-", i, line.length, line)
+    var rotate = str.split(",").map(s => Number(s))
+    switch (rotate.length) {
+      case 3 :
+        console.log("three", rotate)
+        this.setState({
+          ...this.state,
+          rx : rotate[0],
+          ry : rotate[1],
+          rz : rotate[2]
+        })
+        break;
+      default:
+        break;
     }
-    this.setState({
-      ...this.state,
-      rx : this.state.rx + 0.01,
-      ry : this.state.ry - 0.01
-    })
   };
 
   test_update = () => {

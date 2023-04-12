@@ -1,3 +1,24 @@
+// Readable Object
+// https://wicg.github.io/serial/#readable-attribute
+
+class LineBreakTransformer {
+  constructor() {
+    this.container = '';
+  }
+
+  transform(chunk, controller) {
+    this.container += chunk;
+    const lines = this.container.split('\r\n');
+    this.container = lines.pop();
+    lines.forEach(line => controller.enqueue(line));
+  }
+
+  flush(controller) {
+    controller.enqueue(this.container);
+  }
+}
+
+
 class Serial {
 
   constructor() {
@@ -22,7 +43,13 @@ class Serial {
       try {
         this.comm = await navigator.serial.requestPort({});
         await this.comm.open({ baudRate: 115200, bufferSize: 64 });
-        this.reader = this.comm.readable.getReader();
+        // this.reader = this.comm.readable.getReader();
+
+        this.reader = this.comm.readable
+        .pipeThrough(new TextDecoderStream())
+        .pipeThrough(new TransformStream(new LineBreakTransformer()))
+        .getReader();
+
         this.writer = this.comm.writable.getWriter();
         setTimeout(this.receive, 100);
         // document.getElementById("command").disabled = false;
@@ -43,11 +70,9 @@ class Serial {
   // receive a string from the device
   receive = async () =>
   {
-    var result;
-    var str;
-
-    result = await this.reader.read();
-    str = this.dec.decode(result.value);
+    var result = await this.reader.read();
+    // var str = this.dec.decode(result.value);
+    var str = result.value;
     // console.log("receive", str.length, str)
 
     // document.getElementById("results").innerHTML += str.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'');
