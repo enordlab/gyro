@@ -2,7 +2,7 @@
   "name": "react_gyro",
   "version": "1.0.0",
   "description": "Rotating aircraft the useFrame hook",
-  "homepage": "",
+  "homepage": ".",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
