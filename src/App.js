@@ -22,9 +22,9 @@ const Scene = (props) => {
   // console.log('---', props.rotate.rx);
   return  (<primitive
               object={obj}
-              rotation-x={Math.PI * (-0.45 + props.rotate.rx)}
-              rotation-y={Math.PI * (props.rotate.ry)}
-              rotation-z={Math.PI * (props.rotate.rz)}
+              rotation-x={  props.rotate.ry + Math.PI / (-2)}
+              rotation-y={ -props.rotate.rx}
+              rotation-z={  props.rotate.rz}
               scale={0.003}
             />
           );
@@ -64,8 +64,9 @@ class App extends React.Component {
   test_update = () => {
     this.setState({
       ...this.state,
-      rx : this.state.rx + 0.01,
-      ry : this.state.ry - 0.01
+      rx : this.state.rx - 0.001,
+      ry : this.state.ry + 0.001,
+      rz : this.state.rz + 0.001,
     })
   };
 
