@@ -1,14 +1,11 @@
 import "./styles.css";
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useLoader } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
-import { DDSLoader } from "three-stdlib";
-import React, { useState, Suspense } from "react";
-import "./Serial";
+import React, { Suspense } from "react";
 import Serial from "./Serial";
+import { AttitudeIndicator, HeadingIndicator } from './react-flight-indicators'
 
 // THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
 
@@ -84,11 +81,7 @@ class App extends React.Component {
           >
             COM
           </button>
-          <pre id='results'></pre>
-          {/* <input id='command'
-            name='command'
-            disabled={true}
-            autoComplete='off' autoCorrect='off' autoCapitalize='off' spellCheck='false'/> */}
+          &nbsp;&nbsp;Command:
           <button type='button'
             onClick={(event) => {
               this.serial.start();
@@ -96,6 +89,7 @@ class App extends React.Component {
           >
             Start
           </button>
+          &nbsp;
           <button type='button'
             onClick={(event) => {
               this.serial.stop();
@@ -103,13 +97,20 @@ class App extends React.Component {
           >
             Stop
           </button>
+          <pre id='results'> Messages </pre>
         </div>
+
+        <div>
+          <HeadingIndicator  size={150} heading={-this.state.rz * 180/Math.PI} showBox={false} />
+          <AttitudeIndicator size={150}  width={100} roll={-this.state.rx * 180/Math.PI} pitch={this.state.ry * 180/Math.PI} showBox={false} />
+          {/* <HeadingIndicator  size={150} heading={Math.random() * 360} showBox={false} />
+          <AttitudeIndicator size={150}  width={100} roll={(Math.random() - 0.5) * 120} pitch={(Math.random() - 0.5) * 40} showBox={false} /> */}
+        </div>
+
         <Canvas>
           <pointLight position={[0, 5, 30]} />
           <Suspense fallback={null}>
             <Scene rotate={this.state} />
-            {/* <OrbitControls /> */}
-            {/* <Environment preset="sunset" background /> */}
           </Suspense>
         </Canvas>
       </div>
@@ -118,21 +119,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// export default function App() {
-//   const [rotate, setRotate] = useState({rx: 0, ry: 0, rz: 0});
-//   setInterval(() => { setRotate({rx : rotate.rx, ry: rotate.ry + 0.01, rz: rotate.rz}) }, 10)
-
-//   return (
-//     <div className="App">
-//       <Canvas>
-//         <pointLight position={[0, 5, 30]} />
-//         <Suspense fallback={null}>
-//           <Scene rotate={rotate} />
-//           {/* <OrbitControls /> */}
-//           {/* <Environment preset="sunset" background /> */}
-//         </Suspense>
-//       </Canvas>
-//     </div>
-//   );
-// }
