@@ -1,20 +1,36 @@
 {
   "files": {
     "main.css": "./static/css/main.1d8a5c13.chunk.css",
-    "main.js": "./static/js/main.9f851bad.chunk.js",
-    "main.js.map": "./static/js/main.9f851bad.chunk.js.map",
+    "main.js": "./static/js/main.436e3cbe.chunk.js",
+    "main.js.map": "./static/js/main.436e3cbe.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.c09c3e49.js",
     "runtime-main.js.map": "./static/js/runtime-main.c09c3e49.js.map",
-    "static/js/2.18d44a71.chunk.js": "./static/js/2.18d44a71.chunk.js",
-    "static/js/2.18d44a71.chunk.js.map": "./static/js/2.18d44a71.chunk.js.map",
+    "static/js/2.d956c318.chunk.js": "./static/js/2.d956c318.chunk.js",
+    "static/js/2.d956c318.chunk.js.map": "./static/js/2.d956c318.chunk.js.map",
     "index.html": "./index.html",
     "static/css/main.1d8a5c13.chunk.css.map": "./static/css/main.1d8a5c13.chunk.css.map",
-    "static/js/2.18d44a71.chunk.js.LICENSE.txt": "./static/js/2.18d44a71.chunk.js.LICENSE.txt"
+    "static/js/2.d956c318.chunk.js.LICENSE.txt": "./static/js/2.d956c318.chunk.js.LICENSE.txt",
+    "static/media/altitude_pressure.8a2c5bba.svg": "./static/media/altitude_pressure.8a2c5bba.svg",
+    "static/media/altitude_ticks.5db31bf9.svg": "./static/media/altitude_ticks.5db31bf9.svg",
+    "static/media/fi_box.7788464f.svg": "./static/media/fi_box.7788464f.svg",
+    "static/media/fi_circle.0f3ed5da.svg": "./static/media/fi_circle.0f3ed5da.svg",
+    "static/media/fi_needle.8540336b.svg": "./static/media/fi_needle.8540336b.svg",
+    "static/media/fi_needle_small.ec4e2e85.svg": "./static/media/fi_needle_small.ec4e2e85.svg",
+    "static/media/fi_tc_airplane.c8621577.svg": "./static/media/fi_tc_airplane.c8621577.svg",
+    "static/media/heading_mechanics.c70ba00f.svg": "./static/media/heading_mechanics.c70ba00f.svg",
+    "static/media/heading_yaw.19291b56.svg": "./static/media/heading_yaw.19291b56.svg",
+    "static/media/horizon_back.2cd546c3.svg": "./static/media/horizon_back.2cd546c3.svg",
+    "static/media/horizon_ball.bcc94b5c.svg": "./static/media/horizon_ball.bcc94b5c.svg",
+    "static/media/horizon_circle.d636f515.svg": "./static/media/horizon_circle.d636f515.svg",
+    "static/media/horizon_mechanics.7a08d837.svg": "./static/media/horizon_mechanics.7a08d837.svg",
+    "static/media/speed_mechanics.88e98fdb.svg": "./static/media/speed_mechanics.88e98fdb.svg",
+    "static/media/turn_coordinator.20e29bc7.svg": "./static/media/turn_coordinator.20e29bc7.svg",
+    "static/media/vertical_mechanics.b6d15087.svg": "./static/media/vertical_mechanics.b6d15087.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c09c3e49.js",
-    "static/js/2.18d44a71.chunk.js",
+    "static/js/2.d956c318.chunk.js",
     "static/css/main.1d8a5c13.chunk.css",
-    "static/js/main.9f851bad.chunk.js"
+    "static/js/main.436e3cbe.chunk.js"
   ]
 }
